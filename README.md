@@ -19,3 +19,4 @@ Eng
 
 https://howtomechatronics.com/tutorials/g-code-explained-list-of-most-important-g-code-commands/
 
+You need to SD card image file to run code.
