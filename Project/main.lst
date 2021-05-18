@@ -1,0 +1,114 @@
+CCS PCH C Compiler, Version 5.007, 61971               16-Ara-20 22:47
+
+               Filename:   C:\Users\ilyas\Desktop\deneme\main.lst
+
+               ROM used:   128 bytes (0%)
+                           Largest free fragment is 32640
+               RAM used:   4 (0%) at main() level
+                           7 (0%) worst case
+               Stack used: 0 locations
+               Stack size: 31
+
+*
+0000:  GOTO   002C
+.................... #include <18F4550.h> 
+.................... //////// Standard Header file for the PIC18F4550 device //////////////// 
+.................... #device PIC18F4550 
+....................  
+.................... #list 
+....................  
+.................... #fuses HSPLL,USBDIV,PLL5,PUT,CPUDIV1,VREGEN,NOWDT,NOPROTECT,NOLVP,NODEBUG,NOMCLR 
+.................... #use delay(clock=48000000) 
+0004:  CLRF   FEA
+0006:  MOVLW  07
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BZ    002A
+000E:  MOVLW  0F
+0010:  MOVWF  01
+0012:  CLRF   00
+0014:  DECFSZ 00,F
+0016:  BRA    0014
+0018:  DECFSZ 01,F
+001A:  BRA    0012
+001C:  MOVLW  8F
+001E:  MOVWF  00
+0020:  DECFSZ 00,F
+0022:  BRA    0020
+0024:  NOP   
+0026:  DECFSZ FEF,F
+0028:  BRA    000E
+002A:  RETURN 0
+.................... /* 
+....................    ARDUYNO GELY?TYRME PLATFORMU  
+....................     POLYS ÇAKAR TEST YAZILIMI 
+.................... */ 
+.................... void main() 
+002C:  CLRF   FF8
+002E:  BCF    FD0.7
+0030:  MOVF   FC1,W
+0032:  ANDLW  C0
+0034:  IORLW  0F
+0036:  MOVWF  FC1
+0038:  MOVLW  07
+003A:  MOVWF  FB4
+.................... { 
+....................    while(true) 
+....................    { 
+....................       for ( int i = 0; i < 3; i++ ) { 
+003C:  CLRF   05
+003E:  MOVF   05,W
+0040:  SUBLW  02
+0042:  BNC   005C
+....................       output_high(PIN_C0); 
+0044:  BCF    F94.0
+0046:  BSF    F8B.0
+....................       delay_ms(90); 
+0048:  MOVLW  5A
+004A:  MOVWF  07
+004C:  RCALL  0004
+....................       output_low(PIN_C0); 
+004E:  BCF    F94.0
+0050:  BCF    F8B.0
+....................       delay_ms(40); 
+0052:  MOVLW  28
+0054:  MOVWF  07
+0056:  RCALL  0004
+0058:  INCF   05,F
+005A:  BRA    003E
+....................       } 
+....................       for ( int z = 0; z < 3; z++ ) { 
+005C:  CLRF   06
+005E:  MOVF   06,W
+0060:  SUBLW  02
+0062:  BNC   007C
+....................       output_high(PIN_C1); 
+0064:  BCF    F94.1
+0066:  BSF    F8B.1
+....................       delay_ms(90); 
+0068:  MOVLW  5A
+006A:  MOVWF  07
+006C:  RCALL  0004
+....................       output_low(PIN_C1); 
+006E:  BCF    F94.1
+0070:  BCF    F8B.1
+....................       delay_ms(40); 
+0072:  MOVLW  28
+0074:  MOVWF  07
+0076:  RCALL  0004
+0078:  INCF   06,F
+007A:  BRA    005E
+....................       } 
+007C:  BRA    003C
+....................    } 
+.................... } 
+007E:  SLEEP 
+
+Configuration Fuses:
+   Word  1: CE24   PLL5 CPUDIV1 USBDIV HSPLL FCMEN IESO
+   Word  2: 1E3E   PUT BROWNOUT BORV21 VREGEN NOWDT WDT32768
+   Word  3: 0700   CCP2C1 PBADEN LPT1OSC NOMCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB
