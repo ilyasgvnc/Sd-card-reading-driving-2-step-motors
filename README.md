@@ -1,4 +1,4 @@
-# Sd-card-reading-driving-2-step-motors
+# Sd-card-reading-and-driving-2-step-motors
 This is microproccessors lecture mid term project
 
 You can develop three motors for 3D printer or CNC rooter 
